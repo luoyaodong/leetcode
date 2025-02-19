@@ -29,7 +29,7 @@ class Solution {
                         break;
                     }
                 }
-                if(flag == false){
+                if(!flag){
                     List<String> addNewOne = new ArrayList<>();
                     addNewOne.add(strs[i]);
                     result.add(addNewOne);
@@ -38,36 +38,56 @@ class Solution {
         }
         return result;
     }
-    Map<Integer,List<String>> allResultsMap = new HashMap<>();
+    private static Map<Integer,List<String>> allResultsMap = new HashMap<>();
     private boolean ifgroup(int j,List<String> tempResult,String str) {
-        String numOne = tempResult.get(0);
         List<String> allStr = allResultsMap.get(j);
         if(allStr == null){
-            List<String> allList = calCombo(numOne);
+            String numOne = tempResult.get(0);
+            List<String> allList = getPermutations(numOne);
             allResultsMap.put(j,allList);
-        }
-        if(allStr.contains(str)){
-            return true;
+            if(allList.contains(str)||str.equals("")){
+                return true;
+            }else {
+                return false;
+            }
         }else {
-            return false;
+            if(allStr.contains(str)||str.equals("")){
+                return true;
+            }else {
+                return false;
 
+            }
+        }
+
+    }
+
+    public static List<String> getPermutations(String str) {
+        List<String> permutations = new ArrayList<>();
+        if (str == null || str.length() == 0) {
+            return permutations;
+        }
+        permute(str, "", permutations);
+        return permutations;
+    }
+
+    private static void permute(String str, String prefix, List<String> permutations) {
+        if (str.length() == 0) {
+            permutations.add(prefix);
+        } else {
+            for (int i = 0; i < str.length(); i++) {
+                char currentChar = str.charAt(i);
+                String remainingString = str.substring(0, i) + str.substring(i + 1);
+                permute(remainingString, prefix + currentChar, permutations);
+            }
         }
     }
 
-    private List<String> calCombo(String numOne) {
-        List<String> calResult = new ArrayList<>();
-        char[] chars = numOne.toCharArray();
-        getCombo(calResult,chars);
-        return calResult;
-    }
-
-    /**
-     * 全排列
-     * @param calResult
-     * @param chars
-     */
-    private void getCombo(List<String> calResult, char[] chars) {
-
+    public static void main(String[] args) {
+//        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        String[] strs = {"",""};
+        Solution solution = new Solution();
+        List<List<String>> result = solution.groupAnagrams(strs);
+        System.out.println(result);
     }
 
 }
