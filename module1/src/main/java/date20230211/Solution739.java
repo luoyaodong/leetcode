@@ -1,6 +1,9 @@
-package question739每日温度;
+package date20230211;
 
-class Solution {
+/**
+ * 每日温度
+ */
+class Solution739 {
     public int[] dailyTemperatures(int[] temperatures) {
         int[] result = new int[temperatures.length];
         for(int i=0;i<temperatures.length;i++){

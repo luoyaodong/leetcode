@@ -1,8 +1,8 @@
-package question1223;
+package date20230211;
 
 import java.util.ArrayList;
 
-class Solution {
+class Solution1233 {
     private static int[] rollMax;
     private static int total = 0;
     public int dieSimulator(int n, int[] rollMax) {

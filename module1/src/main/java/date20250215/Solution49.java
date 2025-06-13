@@ -1,11 +1,12 @@
-package question49;
+package date20250215;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class Solution {
+
+class Solution49 {
     /**
      * 字母异位词分组
      * @param strs
@@ -85,7 +86,7 @@ class Solution {
     public static void main(String[] args) {
 //        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
         String[] strs = {"c","c"};
-        Solution solution = new Solution();
+        Solution49 solution = new Solution49();
         List<List<String>> result = solution.groupAnagrams(strs);
         System.out.println(result);
     }

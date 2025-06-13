@@ -1,14 +1,14 @@
-package question1797;
+package date20230211;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-class AuthenticationManager {
+class Solution1797 {
     public Map<String,Integer> map = new HashMap<>();
     public int timeToLive;
 
-    public AuthenticationManager(int timeToLive) {
+    public Solution1797(int timeToLive) {
         this.timeToLive = timeToLive;
     }
     
@@ -43,7 +43,7 @@ class AuthenticationManager {
     }
 
     public static void main(String[] args) {
-        AuthenticationManager obj = new AuthenticationManager(5);
+        Solution1797 obj = new Solution1797(5);
 
 //        obj.generate(tokenId,currentTime);
 //        obj.renew(tokenId,currentTime);
