@@ -18,6 +18,7 @@ public class Solution169 {
             if(count>nums.length/2){
                 return nums[i];
             }
+
         }
         return 0;
     }
